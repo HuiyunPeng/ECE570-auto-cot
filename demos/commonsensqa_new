@@ -1,0 +1,22 @@
+{
+    "demo": [
+        {
+            "question": "Q: Committing perjury is a serious what? Answer Choices: (A) indictment (B) crime (C) violence (D) lie (E) go to jail\nA:",
+            "rationale": "Let's think step by step. Committing perjury is lying under oath, which is already a crime. So it's not (D), (C), or (E). It could be an (A), but it's more likely a (B).",
+            "pred_ans": "B",
+            "gold_ans": "B"
+        },
+        {
+            "question": "Q: What is the feeling of one having fun? Answer Choices: (A) smiling (B) pleasure (C) hurt (D) injuries (E) laughter\nA:",
+            "rationale": "Let's think step by step. The feeling of one having fun is generally associated with positive emotions, such as happiness, laughter, and pleasure. Therefore, we can eliminate choices (C) and (D). Next, we can look at the remaining choices and try to determine which one is the best fit. Both choices (A) and (E) could work, but (E) is a more specific answer, so it is probably the correct answer.",
+            "pred_ans": "E",
+            "gold_ans": "B"
+        },
+        {
+            "question": "Q: If you aren't well rested and it's a rainy day what might you do? Answer Choices: (A) sleep (B) write (C) make bread (D) stay in bed (E) enjoy film\nA:",
+            "rationale": "Let's think step by step. First, if you aren't well rested, you might want to sleep. However, if it's a rainy day, you might not be able to sleep because it's too noisy outside. In that case, you might want to stay in bed and enjoy a film.",
+            "pred_ans": "D",
+            "gold_ans": "D"
+        }
+    ]
+}

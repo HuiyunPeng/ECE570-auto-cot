@@ -1,0 +1,40 @@
+{
+    "demo": [
+        {
+            "question": "Q: Take the last letters of each words in \"Tim Candace Cecil Misael\" and concatenate them.\nA:",
+            "rationale": "Let's think step by step. The last letter of \"Tim\" is \"m\". The last letter of \"Candace\" is \"e\". The last letter of \"Cecil\" is \"l\". The last letter of \"Misael\" is \"l\". So the final answer would be \"mel\".",
+            "pred_ans": "mel",
+            "gold_ans": "mell"
+        },
+        {
+            "question": "Q: Take the last letters of each words in \"Kristi Eduardo Angelo Clare\" and concatenate them.\nA:",
+            "rationale": "Let's think step by step. The last letter of \"Kristi\" is \"i\". The last letter of \"Eduardo\" is \"o\". The last letter of \"Angelo\" is \"o\". The last letter of \"Clare\" is \"e\". So, the final answer is \"iooe\".",
+            "pred_ans": "iooe",
+            "gold_ans": "iooe"
+        },
+        {
+            "question": "Q: Take the last letters of each words in \"Suzanne Julissa Chino America\" and concatenate them.\nA:",
+            "rationale": "Let's think step by step. The last letter of \"Suzanne\" is \"e\". The last letter of \"Julissa\" is \"a\". The last letter of \"Chino\" is \"o\". The last letter of \"America\" is \"a\". So the final answer is \"eaoa\".",
+            "pred_ans": "eaoa",
+            "gold_ans": "eaoa"
+        },
+        {
+            "question": "Q: Take the last letters of each words in \"Joyce Leroy Alyssa Maggie\" and concatenate them.\nA:",
+            "rationale": "Let's think step by step. The last letter of \"Joyce\" is \"e\". The last letter of \"Leroy\" is \"y\". The last letter of \"Alyssa\" is \"a\". The last letter of \"Maggie\" is \"e\". So the final answer is \"eyae\".",
+            "pred_ans": "eyae",
+            "gold_ans": "eyae"
+        },
+        {
+            "question": "Q: Take the last letters of each words in \"Kelvin Brennan Carina Paty\" and concatenate them.\nA:",
+            "rationale": "Let's think step by step. The last letter of \"Kelvin\" is \"n\". The last letter of \"Brennan\" is \"n\". The last letter of \"Carina\" is \"a\". The last letter of \"Paty\" is \"y\". So the final answer would be \"nnay\".",
+            "pred_ans": "nnay",
+            "gold_ans": "nnay"
+        },
+        {
+            "question": "Q: Take the last letters of each words in \"Selina Tasha Jarrod Maddy\" and concatenate them.\nA:",
+            "rationale": "Let's think step by step. The last letter of \"Selina\" is \"a\". The last letter of \"Tasha\" is \"a\". The last letter of \"Jarrod\" is \"d\". The last letter of \"Maddy\" is \"y\". So, the final answer would be \"ayda\".",
+            "pred_ans": "ayda",
+            "gold_ans": "aady"
+        }
+    ]
+}

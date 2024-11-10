@@ -1,0 +1,16 @@
+{
+    "demo": [
+        {
+            "question": "Q: A coin is heads up. Carla flips the coin. Dolores flips the coin. Cooper flips the coin. Damion flips the coin. Is the coin still heads up? Note that \"flip\" here means \"reverse\".\nA:",
+            "rationale": "Let's think step by step. Carla flips the coin, so it's now tails up. Dolores flips the coin, so it's now heads up again. Cooper flips the coin, so it's tails up again. Damion flips the coin, so it's heads up again. So yes, the coin is still heads up.",
+            "pred_ans": "yes",
+            "gold_ans": "yes"
+        },
+        {
+            "question": "Q: A coin is heads up. Jazmine does not flip the coin. Carmen flips the coin. Kitty does not flip the coin. Nina does not flip the coin. Is the coin still heads up? Note that \"flip\" here means \"reverse\".\nA:",
+            "rationale": "Let's think step by step. Jazmine does not flip the coin, so the coin remains heads up. Carmen flips the coin, so the coin is now tails up. Kitty does not flip the coin, so the coin remains tails up. Nina does not flip the coin, so the coin remains tails up.",
+            "pred_ans": "no",
+            "gold_ans": "no"
+        }
+    ]
+}

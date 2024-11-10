@@ -1,7 +1,3 @@
-'''
-Adapted from https://github.com/kojima-takeshi188/zero_shot_cot
-'''
-
 from statistics import mean
 from torch.utils.data import Dataset
 import openai
@@ -14,6 +10,9 @@ import re
 import random
 import time
 import datetime
+from transformers import pipeline
+from huggingface_hub import login
+from dotenv import load_dotenv
 
 def shuffleDict(d):
   keys = list(d.keys())
@@ -48,35 +47,50 @@ def print_now(return_flag=0):
     else:
         pass
 
+def decoder_for_llama(args, messages, max_length):
+    print("*****************************decoder_for_llama*****************************")
+    # Login to Hugging Face if not already logged in
+    if not hasattr(decoder_for_llama, 'logged_in'):
+        load_dotenv()  # Load environment variables from .env file
+        token = os.getenv("HUGGING_FACE_TOKEN")  # Get the token from the environment variables
+        login(token=token)  # Pass token from .env
+        decoder_for_llama.logged_in = True
+
+    # Initialize pipeline if not already created
+    if not hasattr(decoder_for_llama, 'pipe'):
+        model_id = "meta-llama/Llama-3.2-3B-Instruct"
+        decoder_for_llama.pipe = pipeline(
+            "text-generation",
+            model=model_id,
+            torch_dtype=torch.bfloat16,
+            device_map="auto"
+        )
+
+    # Generate response
+    outputs = decoder_for_llama.pipe(
+        messages,
+        max_new_tokens=max_length,
+        top_p=1,
+        do_sample=True
+    )
+    
+    # Extract generated text
+    response = outputs[0]["generated_text"][-1]["content"]
+    
+    return response
+
+
 # Sentence Generator (Decoder) for GPT-3 ...
 def decoder_for_gpt3(args, input, max_length):
-    
+    print(input)
     # GPT-3 API allows each users execute the API within 60 times in a minute ...
     # time.sleep(1)
     time.sleep(args.api_time_interval)
-    
-    # https://beta.openai.com/account/api-keys
-    # openai.api_key = "[Your OpenAI API Key]"
-    
-    # Specify engine ...
-    # Instruct GPT3
-    if args.model == "gpt3":
-        engine = "text-ada-001"
-    elif args.model == "gpt3-medium":
-        engine = "text-babbage-001"
-    elif args.model == "gpt3-large":
-        engine = "text-curie-001"
-    elif args.model == "gpt3-xl":
-        engine = "text-davinci-002"
-    elif args.model == "text-davinci-001":
-        engine = "text-davinci-001"
-    elif args.model == "code-davinci-002":
-        engine = "code-davinci-002"
-    else:
-        raise ValueError("model is not properly defined ...")
+
+    engine = "gpt-4o-mini"
         
     if ("few_shot" in args.method or "auto" in args.method)  and engine == "code-davinci-002":
-        response = openai.Completion.create(
+        response = openai.ChatCompletion.create(
           engine=engine,
           prompt=input,
           max_tokens=max_length,
@@ -87,18 +101,17 @@ def decoder_for_gpt3(args, input, max_length):
           stop=["\n"]
         )
     else:
-        response = openai.Completion.create(
-            engine=engine,
-            prompt=input,
+        response = openai.chat.completions.create(
+            model=engine,  # Change "engine" to "model"
+            messages=input,
             max_tokens=max_length,
             temperature=args.temperature,
             top_p=1,
             frequency_penalty=0,
-            presence_penalty=0,
-            stop=None
+            presence_penalty=0
         )
 
-    return response["choices"][0]["text"]
+    return response.choices[0].message.content
 
 class Decoder():
     def __init__(self):
@@ -106,7 +119,10 @@ class Decoder():
         pass
  
     def decode(self, args, input, max_length):
-        response = decoder_for_gpt3(args, input, max_length)
+        if args.llm_model == "gpt":
+            response = decoder_for_gpt3(args, input, max_length)
+        else:
+            response = decoder_for_llama(args, input, max_length)
         return response
 
 def data_reader(args):
@@ -310,6 +326,7 @@ def answer_cleansing(args, pred, must_choice=False):
             pred = [s for s in re.findall(r'-?\d+\.?\d*', pred)]
     elif args.dataset in ("strategyqa", "coin_flip"):
         pred = pred.lower()
+        pred = pred.replace("*", "")
         pred = re.sub("\"|\'|\n|\.|\s|\:|\,"," ", pred)
         pred = pred.split(" ")
         pred = [i for i in pred if i in ("yes", "no")]
@@ -366,6 +383,18 @@ def create_demo_text(args, cot_flag):
         else:
             demo_text += x[i] + " " + args.direct_answer_trigger_for_fewshot + " " + y[i] + ".\n\n"
     return demo_text
+
+def create_demo_text2(args):
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant."}
+    ]
+    with open(args.demo_path, encoding="utf-8") as f:
+        json_data = json.load(f)
+        json_data = json_data["demo"]
+        for line in json_data:
+            messages.append({"role": "user", "content": line["question"]})
+            messages.append({"role": "assistant", "content": line["rationale"] + " " + args.direct_answer_trigger_for_fewshot + " " + line["pred_ans"] + "."})
+    return messages
 
 def answer_cleansing_zero_shot(args, pred, must_choice=False):
     pred = pred.strip()

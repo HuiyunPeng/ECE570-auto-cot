@@ -7,6 +7,8 @@ import json
 import matplotlib.pyplot as plt
 import argparse
 from utils import fix_seed
+import hdbscan
+from sklearn.preprocessing import StandardScaler
 
 
 def parse_arguments():
@@ -94,20 +96,43 @@ def main():
 
     corpus_embeddings = encoder.encode(corpus)
 
+    scaler = StandardScaler()
+    corpus_embeddings = scaler.fit_transform(corpus_embeddings)
+
     # Perform kmean clustering
-    clustering_model = KMeans(n_clusters=num_clusters, random_state=args.random_seed)
+    # clustering_model = KMeans(n_clusters=num_clusters, random_state=args.random_seed)
+    # clustering_model.fit(corpus_embeddings)
+    # cluster_assignment = clustering_model.labels_
+
+    clustering_model = hdbscan.HDBSCAN(
+        min_cluster_size=5,  # Lower than num_clusters to be more lenient
+        metric='euclidean',
+    )
     clustering_model.fit(corpus_embeddings)
     cluster_assignment = clustering_model.labels_
 
-    clustered_sentences = [[] for i in range(num_clusters)]
+    # Get the unique cluster labels (excluding noise points marked as -1)
+    unique_clusters = sorted(list(set(label for label in cluster_assignment if label != -1)))
+    num_actual_clusters = len(unique_clusters)
 
-    dist = clustering_model.transform(corpus_embeddings)
-    clustered_dists = [[] for i in range(num_clusters)]
-    clustered_idx = [[] for i in range(num_clusters)]
+    # Initialize lists with actual number of clusters
+    clustered_sentences = [[] for _ in range(num_actual_clusters)]
+    clustered_dists = [[] for _ in range(num_actual_clusters)]
+    clustered_idx = [[] for _ in range(num_actual_clusters)]
+
+    # Use probabilities
+    dist = clustering_model.probabilities_.reshape(-1, 1)
+
     for sentence_id, cluster_id in enumerate(cluster_assignment):
-        clustered_sentences[cluster_id].append(corpus[sentence_id])
-        clustered_dists[cluster_id].append(dist[sentence_id][cluster_id])
-        clustered_idx[cluster_id].append(sentence_id)
+        if cluster_id != -1:  # Skip noise points
+            # Map cluster_id to a zero-based index
+            cluster_idx = unique_clusters.index(cluster_id)
+            clustered_sentences[cluster_idx].append(corpus[sentence_id])
+            clustered_dists[cluster_idx].append(dist[sentence_id][0])
+            clustered_idx[cluster_idx].append(sentence_id)
+
+    # Update num_clusters for the rest of the code
+    num_clusters = num_actual_clusters
 
     demos = []
 
@@ -156,13 +181,9 @@ def main():
     y_km = clustering_model.fit_predict(corpus_embeddings)
     pca_model = PCA(n_components=2, random_state=args.random_seed)
     transformed = pca_model.fit_transform(corpus_embeddings)
-    centers = pca_model.transform(clustering_model.cluster_centers_)
 
+    # Simple scatter plot without cluster centers
     plt.scatter(x=transformed[:, 0], y=transformed[:, 1], c=y_km, s=50, cmap=plt.cm.Paired, alpha=0.4)
-    plt.scatter(centers[:, 0],centers[:, 1],
-            s=250, marker='*', label='centroids',
-            edgecolor='black',
-           c=np.arange(0,num_clusters),cmap=plt.cm.Paired,)
     plt.xticks([])
     plt.yticks([])
     plt.savefig(save_file+".png", dpi=600)

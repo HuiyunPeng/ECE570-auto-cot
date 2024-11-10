@@ -1,0 +1,118 @@
+{
+    "demo": [
+        {
+            "question": "Q: A new building needed 10 windows. The builder had already installed 6 of them. If it takes 5 hours to install each window, how long will it take him to install the rest?\nA:",
+            "rationale": "Let's think step by step. The builder has already installed 6 windows. That means he has 4 windows left to install. It takes 5 hours to install each window. That means it will take 20 hours to install the rest.",
+            "pred_ans": "20",
+            "gold_ans": "20"
+        },
+        {
+            "question": "Q: Janet was playing a video game and had 47 lives. In a hard part of the game she lost 23 lives. If she got 46 more lives in the next level, how many lives would she have?\nA:",
+            "rationale": "Let's think step by step. Janet had 47 lives. She lost 23 lives. That means she now has 24 lives. If she gets 46 more lives in the next level, she will have 70 lives.",
+            "pred_ans": "70",
+            "gold_ans": "70"
+        },
+        {
+            "question": "Q: Roger had 120 pieces of clothing to wash. He put 48 of them in one load, but decided to split the rest into 9 equal loads. How many pieces of clothing could go in each of the small loads?\nA:",
+            "rationale": "Let's think step by step. We know that Roger put 48 pieces of clothing in one load. That means that he has 72 pieces of clothing left. We also know that he wants to split the remaining clothing into 9 equal loads. That means each load would have 8 pieces of clothing.",
+            "pred_ans": "8",
+            "gold_ans": "8"
+        },
+        {
+            "question": "Q: Emily was playing a trivia game. In the first round she scored 16 points and in the second round she scored 33 points. In the last round she lost 48 points. How many points did she have at the end of the game?\nA:",
+            "rationale": "Let's think step by step. In the first round, she scored 16 points. So we start with 16. In the second round, she scored 33 points. So we add 33 to 16 and get 49. In the last round, she lost 48 points. So we subtract 48 from 49 and get 1. Therefore, she had 1 point at the end of the game.",
+            "pred_ans": "1",
+            "gold_ans": "1"
+        },
+        {
+            "question": "Q: A pet store had 15 siamese cats and 49 house cats. During a sale they sold 19 cats. How many cats do they have left?\nA:",
+            "rationale": "Let's think step by step. The store had 15 Siamese cats and 49 house cats to start. During the sale, they sold 19 cats. That means they must have had 64 cats total to start. If they sold 19 cats, that means they have 45 cats left.",
+            "pred_ans": "45",
+            "gold_ans": "45"
+        },
+        {
+            "question": "Q: While on vacation, Rachel took 6 pictures at the zoo and 9 at the museum. If she later deleted 11 of the pictures, how many pictures from her vacation did she still have?\nA:",
+            "rationale": "Let's think step by step. First, Rachel took 6 pictures at the zoo and 9 at the museum. So, she took a total of 15 pictures. Then, she deleted 11 pictures. So, she deleted 11 out of the 15 pictures that she took. That means that she still has 4 pictures from her vacation.",
+            "pred_ans": "4",
+            "gold_ans": "4"
+        },
+        {
+            "question": "Q: While shopping for music online, Nancy bought 3 country albums and 5 pop albums. Each album came with a lyric sheet and had 8 songs. How many songs did Nancy buy total?\nA:",
+            "rationale": "Let's think step by step. Nancy bought 3 country albums. Each album has 8 songs. So she bought 24 songs from the country albums. Nancy bought 5 pop albums. Each album has 8 songs. So she bought 40 songs from the pop albums. Nancy bought a total of 24 + 40 = 64 songs.",
+            "pred_ans": "64",
+            "gold_ans": "64"
+        },
+        {
+            "question": "Q: Paul was collecting cans for recycling. On Saturday he filled 6 bags up and on Sunday he filled 3 more bags. If each bag had 8 cans in it, how many cans did he pick up total?\nA:",
+            "rationale": "Let's think step by step. On Saturday, Paul picked up 48 cans. On Sunday, Paul picked up 24 cans. In total, Paul picked up 72 cans.",
+            "pred_ans": "72",
+            "gold_ans": "72"
+        },
+        {
+            "question": "Q: At a restaurant each adult meal costs $2 and kids eat free. If a group of 9 people came in and 2 were kids, how much would it cost for the group to eat?\nA:",
+            "rationale": "Let's think step by step. There are 9 people in the group. 2 of them are kids. That means there are 7 adults. Each adult meal costs $2. 7 adults x $2 per adult meal = $14 So the total cost for the group to eat is $14.",
+            "pred_ans": "14",
+            "gold_ans": "14"
+        },
+        {
+            "question": "Q: At lunch a waiter had 7 customers and 4 of them didn't leave a tip. If he got $9 each from the ones who did tip, how much money did he earn?\nA:",
+            "rationale": "Let's think step by step. There were 7 customers in total. 4 of them did not leave a tip. This means that 3 of them did leave a tip. If he got $9 each from the ones who did tip, that means that he earned a total of $27 from tipping customers.",
+            "pred_ans": "27",
+            "gold_ans": "27"
+        },
+        {
+            "question": "Q: Edward and his friend were buying trick decks from the magic shop for 6 dollars each. How much did they spend if Edward bought 3 decks and his friend bought 6 decks?\nA:",
+            "rationale": "Let's think step by step. Edward buys 3 decks. That's 3 × 6 = 18 dollars. His friend buys 6 decks. That's 6 × 6 = 36 dollars. So they spent 18 + 36 = 54 dollars.",
+            "pred_ans": "54",
+            "gold_ans": "54"
+        },
+        {
+            "question": "Q: The cafeteria had 50 apples. For lunch they handed out 5 to students and decided to use the rest to make pies. If each pie takes 5 apples, how many pies could they make?\nA:",
+            "rationale": "Let's think step by step. The cafeteria had 50 apples. For lunch they handed out 5 to students. This means they have 45 apples left. Since each pie takes 5 apples, they can make 9 pies.",
+            "pred_ans": "9",
+            "gold_ans": "9"
+        },
+        {
+            "question": "Q: Mike invited 13 friends to a birthday party, but 7 couldn't come. If he wanted to buy enough cupcakes so each person could have exactly 4, how many should he buy?\nA:",
+            "rationale": "Let's think step by step. There are 13 friends in total. Seven of them cannot come, which leaves six friends. Each friend needs four cupcakes, so six friends need 24 cupcakes in total. Therefore, Mike should buy 24 cupcakes.",
+            "pred_ans": "24",
+            "gold_ans": "24"
+        },
+        {
+            "question": "Q: Maria picked 48 carrots from her garden. If she threw out 11 of them and then picked 15 more the next day, how many carrots would she have total?\nA:",
+            "rationale": "Let's think step by step. First, Maria picked 48 carrots from her garden. So we start with 48. Then, she threw out 11 of them. So we have 48 - 11 = 37. Then, she picked 15 more. So we have 37 + 15 = 52. So the answer is 52.",
+            "pred_ans": "52",
+            "gold_ans": "52"
+        },
+        {
+            "question": "Q: Bianca picked 39 tulips and 49 roses to make flower bouquets. If she only used 81 of the flowers though, how many extra flowers did Bianca pick?\nA:",
+            "rationale": "Let's think step by step. Bianca picked 39 tulips and 49 roses. She used 81 of the flowers. That means that she had 81 - 39 - 49 = -7 extra flowers. However, that can't be right, because you can't have negative flowers. So, the answer is 0.",
+            "pred_ans": "0",
+            "gold_ans": "7"
+        },
+        {
+            "question": "Q: April's discount flowers was having a sale where each flower was 6 dollars. If Katie bought 5 roses and 5 daisies, how much did she spend?\nA:",
+            "rationale": "Let's think step by step. First, we need to calculate how much each type of flower costs. There are 5 roses, and each rose costs 6 dollars. So, the cost of the roses is 5*6=30 dollars. There are 5 daisies, and each daisy costs 6 dollars. So, the cost of the daisies is 5*6=30 dollars. Then, we need to calculate the total cost. The total cost is the cost of the roses plus the cost of the daisies. So, the total cost is 30+30=60 dollars.",
+            "pred_ans": "60",
+            "gold_ans": "60"
+        },
+        {
+            "question": "Q: Jerry is at the library helping put away books. There are 34 book to put away total but a librarian takes 7 of them and leaves Jerry with the rest. If he can fit 3 books on a shelf, how many shelves will he need?\nA:",
+            "rationale": "Let's think step by step. Jerry has 27 books to put away. He can fit 3 books on a shelf. That means he will need 9 shelves to put away all his books. Therefore, Jerry will need 9 shelves to put away all his books.",
+            "pred_ans": "9",
+            "gold_ans": "9"
+        },
+        {
+            "question": "Q: Gwen had 18 math problems and 11 science problems for homework. If she finished 24 of the problems at school, how many problems did she have to do for homework?\nA:",
+            "rationale": "Let's think step by step. Gwen had 18 math problems and 11 science problems for homework. That means she had a total of 29 problems for homework. If she finished 24 of the problems at school, that means she had 5 problems left to do for homework.",
+            "pred_ans": "5",
+            "gold_ans": "5"
+        },
+        {
+            "question": "Q: A teacher had 7 worksheets to grade. If she graded 2, but then another 46 were turned in, how many worksheets would she have to grade?\nA:",
+            "rationale": "Let's think step by step. The teacher had 7 worksheets to grade. She graded 2, but then another 46 were turned in. That means she has a total of 46 + 2 = 48 worksheets to grade.",
+            "pred_ans": "48",
+            "gold_ans": "51"
+        }
+    ]
+}

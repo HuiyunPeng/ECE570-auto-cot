@@ -1,0 +1,52 @@
+{
+    "demo": [
+        {
+            "question": "Q: Eve ran 0.7 mile and walked 0.6 mile . How much farther did Eve run than walk ?\nA:",
+            "rationale": "Let's think step by step. Eve ran 0.7 mile. Eve walked 0.6 mile. Eve ran _____ mile more than she walked. Eve ran 0.1 mile more than she walked.",
+            "pred_ans": "0.1",
+            "gold_ans": "0.1"
+        },
+        {
+            "question": "Q: There are 41 crayons and 26 pencils in the drawer . Sam placed 12 crayons in the drawer . How many crayons are now there in total ?\nA:",
+            "rationale": "Let's think step by step. There are 41 crayons in the drawer. Sam placed 12 crayons in the drawer. How many crayons are now there in total? There are now 41 + 12 = 53 crayons in the drawer.",
+            "pred_ans": "53",
+            "gold_ans": "53"
+        },
+        {
+            "question": "Q: Jason grew 23 watermelons and 18 turnips . Nancy grew 28 watermelons . How many watermelons did they grow in total ?\nA:",
+            "rationale": "Let's think step by step. Jason grew 23 watermelons and 18 turnips. Nancy grew 28 watermelons. How many watermelons did they grow in total? The answer is 23 + 18 + 28, which equals 69.",
+            "pred_ans": "69",
+            "gold_ans": "51"
+        },
+        {
+            "question": "Q: Joan found 75 seashells and 14 starfishes on the beach . She gave Tim some of her seashells . She has 62 seashell . How many seashells did she give to Tim ?\nA:",
+            "rationale": "Let's think step by step. Joan found 75 seashells and 14 starfishes. So she has a total of 89 things. Then she gave Tim some of her seashells, so she has less seashells now. And we are trying to find out how many seashells she gave to Tim. So Joan has 62 seashells now. So she gave Tim 27 seashells.",
+            "pred_ans": "27",
+            "gold_ans": "13"
+        },
+        {
+            "question": "Q: Sara had 100 pennies and 783 quarters in her bank . Her dad borrowed 271 quarters from Sara . How many quarters does she have now ?\nA:",
+            "rationale": "Let's think step by step. Sara had 100 pennies and 783 quarters in her bank. Her dad borrowed 271 quarters from Sara. This means that her dad took 271 quarters from her bank, so she would have 783 - 271 = 512 quarters remaining.",
+            "pred_ans": "512",
+            "gold_ans": "512"
+        },
+        {
+            "question": "Q: Tom purchased a Batman game for $ 13.60 , and a Superman game for $ 5.06 . Tom already owns 2 games . How much did Tom spend on video games ?\nA:",
+            "rationale": "Let's think step by step. Tom purchased a Batman game for $ 13.60. Tom purchased a Superman game for $ 5.06. Tom already owns 2 games. Tom spent $ 18.66 on video games.",
+            "pred_ans": "18.66",
+            "gold_ans": "18.66"
+        },
+        {
+            "question": "Q: There are 34 dogwood trees currently in the park . Park workers will plant 49 dogwood trees today . How many dogwood trees will the park have when the workers are finished ?\nA:",
+            "rationale": "Let's think step by step. There are 34 dogwood trees currently in the park. Park workers will plant 49 dogwood trees today. How many dogwood trees will the park have when the workers are finished? The park will have 83 dogwood trees when the workers are finished.",
+            "pred_ans": "83",
+            "gold_ans": "83"
+        },
+        {
+            "question": "Q: Dina made cookies . She used 0.625 cup of flour and 0.25 cup of sugar . How much more flour than sugar did Dina use ?\nA:",
+            "rationale": "Let's think step by step. Dina used 0.625 cup of flour and 0.25 cup of sugar. How much more flour than sugar did Dina use? 0.625 - 0.25 = 0.375 Dina used 0.375 more cups of flour than sugar.",
+            "pred_ans": "3",
+            "gold_ans": "0.375"
+        }
+    ]
+}

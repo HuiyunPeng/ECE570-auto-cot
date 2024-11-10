@@ -1,0 +1,76 @@
+{
+    "demo": [
+        {
+            "question": "Q: Paige was helping her mom plant flowers and together they planted some seeds. They put 10 seeds in each flower bed. If there are 45 flowerbeds How many seeds did they plant?\nA:",
+            "rationale": "Let's think step by step. There are 10 seeds in each flower bed. There are 45 flower beds. So, 10 times 45 equals 450. Therefore, they planted 450 seeds.",
+            "pred_ans": "450",
+            "gold_ans": "450"
+        },
+        {
+            "question": "Q: A mailman has to give 4 pieces of junk mail to each house in each of the 81 blocks. If there are 12 houses in each block How many pieces of junk mail should he give in each block?\nA:",
+            "rationale": "Let's think step by step. There are 81 blocks, and each block has 12 houses. That means the mailman has to give 4 pieces of junk mail to each of the 12 houses, and he has to do that for each of the 81 blocks. That means he has to give 4 × 12 = 48 pieces of junk mail to each block.",
+            "pred_ans": "48",
+            "gold_ans": "48"
+        },
+        {
+            "question": "Q: 2 children were riding on the bus. At the bus stop some more children got on the bus. Then there were 10 children altogether on the bus. How many more children are on the bus now than there were before the bus stop?\nA:",
+            "rationale": "Let's think step by step. There were 2 children on the bus. Some more children got on the bus. Now there are 10 children on the bus. So, 8 more children got on the bus.",
+            "pred_ans": "8",
+            "gold_ans": "8"
+        },
+        {
+            "question": "Q: Julia played tag with 12 kids on monday. She played tag with 14 kids on tuesday. She spent a total of 34 hours to play tag on both days. How many kids did she play with altogether?\nA:",
+            "rationale": "Let's think step by step. On Monday, Julia played with 12 kids. On Tuesday, Julia played with 14 kids. So, altogether, Julia played with 26 kids.",
+            "pred_ans": "26",
+            "gold_ans": "26"
+        },
+        {
+            "question": "Q: He then went to see the oranges being harvested. He found out that they harvest 8 sacks per day. How many days will it take to harvest 24 sacks of oranges?\nA:",
+            "rationale": "Let's think step by step. There are 8 sacks harvested per day. There are 24 sacks that need to be harvested. To find out how many days it will take, we can divide 24 by 8. It will take 3 days to harvest 24 sacks of oranges.",
+            "pred_ans": "3",
+            "gold_ans": "3"
+        },
+        {
+            "question": "Q: Tiffany was collecting cans for recycling. On monday she had 3 bags of cans. The next day she found 7 more bags of cans and 44 bags of bottles. How many bags of cans did she have altogether?\nA:",
+            "rationale": "Let's think step by step. On Monday, Tiffany had 3 bags of cans. On Tuesday, she found 7 more bags of cans and 44 bags of bottles. So, altogether, Tiffany had 3 + 7 = 10 bags of cans.",
+            "pred_ans": "10",
+            "gold_ans": "10"
+        },
+        {
+            "question": "Q: Jake has 12 fewer peaches and 79 more apples than Steven. Steven has 19 peaches and 14 apples. How many peaches does Jake have?\nA:",
+            "rationale": "Let's think step by step. Jake has 12 fewer peaches than Steven. That means Jake has 7 peaches.",
+            "pred_ans": "7",
+            "gold_ans": "7"
+        },
+        {
+            "question": "Q: 7 red peaches, 71 yellow peaches and 8 green peaches are in the basket. How many more green peaches than red peaches are in the basket?\nA:",
+            "rationale": "Let's think step by step. There are 7 red peaches and 8 green peaches. That means there is 1 more green peach than red peach.",
+            "pred_ans": "1",
+            "gold_ans": "1"
+        },
+        {
+            "question": "Q: Bobby had 20 pieces of candy. He ate 34 pieces of candy. Then he ate 18 more. How many pieces of candy did Bobby eat?\nA:",
+            "rationale": "Let's think step by step. Bobby had 20 pieces of candy. He ate 34 pieces of candy. Then he ate 18 more. That means he had a total of 20 + 34 + 18 = 72 pieces of candy.",
+            "pred_ans": "72",
+            "gold_ans": "52"
+        },
+        {
+            "question": "Q: Brenda's mother made cookies for 10 guests but 9 guests did not come. If she prepared 18 cookies and each guest had the same number of cookies How many did each of them have?\nA:",
+            "rationale": "Let's think step by step. There were 18 cookies in total. 9 guests did not come. That means that 1 guest came. That guest would have gotten 18 cookies.",
+            "pred_ans": "18",
+            "gold_ans": "18"
+        },
+        {
+            "question": "Q: Mary is baking a cake. The recipe calls for 3 cups of sugar and 10 cups of flour. She already put in some cups of flour. If she still needs 5 more cups of flour than sugar How many cups of flour did she put in?\nA:",
+            "rationale": "Let's think step by step. The recipe calls for 3 cups of sugar and 10 cups of flour. She already put in some cups of flour. So we know that she has put in at least 3 cups of flour, because that is the amount of sugar called for in the recipe. If she still needs 5 more cups of flour than sugar, that means she needs a total of 8 cups of flour. So she has put in at least 3 cups of flour, and she needs 5 more cups of flour, which means she has put in a total of 8 cups of flour.",
+            "pred_ans": "8",
+            "gold_ans": "2"
+        },
+        {
+            "question": "Q: Baker made 54 cakes and 143 pastries. If he sold 68 cakes and 92 pastries How many more pastries than cakes did baker sell?\nA:",
+            "rationale": "Let's think step by step. There are 54 cakes and 143 pastries. He sold 68 cakes and 92 pastries. That means that he has 54-68 = -14 cakes and 143-92 = 51 pastries. Since he has 51 pastries and -14 cakes, he sold 51-(-14) = 65 more pastries than cakes.",
+            "pred_ans": "65",
+            "gold_ans": "24"
+        }
+    ]
+}

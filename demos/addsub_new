@@ -1,0 +1,76 @@
+{
+    "demo": [
+        {
+            "question": "Q: Heather went to the county fair last weekend . When she got there , she had to walk 0.3333333333333333 mile from the car to the entrance . Then she walked 0.3333333333333333 mile to the carnival rides and 0.08333333333333333 mile from the carnival rides back to the car . How many miles did Heather walk in all ?\nA:",
+            "rationale": "Let's think step by step. Heather walked from the car to the entrance. This was 0.3333333333333333 miles. Then she walked from the entrance to the carnival rides. This was another 0.3333333333333333 miles. Finally, she walked from the carnival rides back to the car. This was 0.08333333333333333 miles. In total, Heather walked 0.3333333333333333 + 0.3333333333333333 + 0.08333333333333333 = 0.75 miles.",
+            "pred_ans": "0.75",
+            "gold_ans": "0.75"
+        },
+        {
+            "question": "Q: Nancy went to 9 football games this month . She went to 8 games last month , and plans to go to 7 games next month . She paid 3 dollars for the tickets . How many games will she attend in all ?\nA:",
+            "rationale": "Let's think step by step. Nancy went to 9 football games this month. So she attended 9 games in total this month. She went to 8 games last month and plans to go to 7 games next month. So she attended 8 + 7 = 15 games in total last month and this month. She paid 3 dollars for the tickets. So she paid 3 x 15 = 45 dollars in total for the tickets.",
+            "pred_ans": "15",
+            "gold_ans": "24"
+        },
+        {
+            "question": "Q: There were 2 red orchids and 4 white orchids in the vase . Jessica cut some red orchids from her flower garden . There are now 18 red orchids in the vase . How many red orchids did she cut ?\nA:",
+            "rationale": "Let's think step by step. There were 2 red orchids and 4 white orchids in the vase. Jessica cut some red orchids from her flower garden. There are now 18 red orchids in the vase. So, Jessica cut 16 red orchids from her flower garden.",
+            "pred_ans": "16",
+            "gold_ans": "16"
+        },
+        {
+            "question": "Q: There are 48 erasers in the drawer and 30 erasers on the desk . Alyssa placed 39 erasers and 45 rulers on the desk . How many erasers are now there in total ?\nA:",
+            "rationale": "Let's think step by step. There are 48 erasers in the drawer and 30 erasers on the desk. Alyssa placed 39 erasers and 45 rulers on the desk. That means that Alyssa took 39 erasers out of the drawer and placed them on the desk. So now, there are 9 erasers left in the drawer. Alyssa also placed 45 rulers on the desk. So now, there are a total of 84 objects on the desk. Of those 84 objects, 39 are erasers. So now, there are a total of 39 erasers on the desk.",
+            "pred_ans": "39",
+            "gold_ans": "117"
+        },
+        {
+            "question": "Q: Jason has 3 Pokemon cards . Benny bought 2 of Jason 's Pokemon cards . How many Pokemon cards does Jason have now ?\nA:",
+            "rationale": "Let's think step by step. Jason has 3 Pokemon cards. Benny buys 2 of Jason's Pokemon cards. That means that Benny takes 2 of Jason's cards, so now Jason only has 1 card left.",
+            "pred_ans": "1",
+            "gold_ans": "1"
+        },
+        {
+            "question": "Q: Sally had 760 quarters in her bank . She spent 418 of her quarters . How many quarters does she have now ?\nA:",
+            "rationale": "Let's think step by step. Sally has 760 quarters in her bank. She spends 418 of her quarters. That means she has 418 less quarters now. So she has 760 - 418 = 342 quarters now.",
+            "pred_ans": "342",
+            "gold_ans": "342"
+        },
+        {
+            "question": "Q: Mike found 6 seashells and 4 starfish , but 4 of the seashells were broken . How many unbroken seashells did Mike find ?\nA:",
+            "rationale": "Let's think step by step. Mike found 6 seashells. 4 of those seashells were broken. That means that Mike found 2 unbroken seashells.",
+            "pred_ans": "2",
+            "gold_ans": "2"
+        },
+        {
+            "question": "Q: A restaurant served 6 cakes during lunch and 9 during dinner today . How many cakes were served today ?\nA:",
+            "rationale": "Let's think step by step. There were 6 cakes served during lunch and 9 during dinner. That means there were a total of 15 cakes served today.",
+            "pred_ans": "15",
+            "gold_ans": "15"
+        },
+        {
+            "question": "Q: Tim has 22 books . Mike has 20 books . How many books do they have together ?\nA:",
+            "rationale": "Let's think step by step. Step 1: How many books does each person have? Tim has 22 books and Mike has 20 books. Step 2: How many books are there in total? There are 22 + 20 = 42 books in total.",
+            "pred_ans": "42",
+            "gold_ans": "42"
+        },
+        {
+            "question": "Q: Jason has 7 violet balloons and 4 red balloons . He lost 3 of the violet balloons . How many violet balloons does Jason have now ?\nA:",
+            "rationale": "Let's think step by step. Jason has 7 violet balloons and 4 red balloons. He lost 3 of the violet balloons. That means he now has 7 - 3 = 4 violet balloons.",
+            "pred_ans": "4",
+            "gold_ans": "4"
+        },
+        {
+            "question": "Q: Joan picked 43 apples from the orchard , and gave 27 apples to Melanie . How many apples does Joan have now ?\nA:",
+            "rationale": "Let's think step by step. Joan picked 43 apples from the orchard. So we start with 43 apples. Then, she gave 27 apples to Melanie. This means we have to take away 27 apples from the 43 apples. So Joan has 43 - 27 = 16 apples now.",
+            "pred_ans": "16",
+            "gold_ans": "16"
+        },
+        {
+            "question": "Q: Sam grew 4 watermelons , but the rabbits ate 3 watermelons . How many watermelons does Sam have ?\nA:",
+            "rationale": "Let's think step by step. Sam grew 4 watermelons. The rabbits ate 3 watermelons. This means that Sam had 4 watermelons, and then 3 of them were eaten by rabbits. So now Sam has 1 watermelon.",
+            "pred_ans": "1",
+            "gold_ans": "1"
+        }
+    ]
+}

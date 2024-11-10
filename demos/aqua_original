@@ -1,0 +1,28 @@
+{
+    "demo": [
+        {
+            "question": "Q: A car finishes a journey in 20 hours at the speed of 60 km/hr. If the same distance is to be covered in 10 hours, how much speed does the car gain? Answer Choices: (A) 80 kmph (B) 50 kmph (C) 120 kmph (D) 70 kmph (E) 80 kmph\nA:",
+            "rationale": "Let's think step by step. The car is currently travelling at 60 km/hr. In order to travel the same distance in 10 hours, the car would need to travel at 6 times the speed, or 360 km/hr. Therefore, the car would need to gain 300 km/hr. The answer is C.",
+            "pred_ans": "C",
+            "gold_ans": "C"
+        },
+        {
+            "question": "Q: Mark told John \"If you give me half your money I will have Rs.75. John said, \"if you give me one third of your money, I will have Rs.75/-. How much money did John have ? Answer Choices: (A) 22 (B) 60 (C) 28 (D) 26 (E) 18\nA:",
+            "rationale": "Let's think step by step. If Mark has Rs.75, then John has Rs.75 as well. If Mark gives John half his money, then Mark will have Rs.37.50 and John will have Rs.112.50. However, this isn't one of the answer choices. If Mark gives John one third of his money, then Mark will have Rs.50 and John will have Rs.100. This is one of the answer choices, so John must have had Rs.100 to begin with.",
+            "pred_ans": "D",
+            "gold_ans": "B"
+        },
+        {
+            "question": "Q: If Jill needed to buy 10 bottles of soda for a party in which 8 people attended, how many bottles of soda will she need to buy for a party in which 12 people are attending? Answer Choices: (A) 6 (B) 8 (C) 10 (D) 12 (E) 14\nA:",
+            "rationale": "Let's think step by step. For 8 people, Jill needs 10 bottles of soda. For 12 people, Jill needs ? bottles of soda. Since Jill needs 2.5 bottles of soda per person, she will need 2.5 * 12 = 30 bottles of soda for 12 people. The answer is (E).",
+            "pred_ans": "E",
+            "gold_ans": "C"
+        },
+        {
+            "question": "Q: A rope 20 meters long is cut into two pieces. If the length of one piece of rope is 3 meters shorter than the length of the other, what is the length, in meters, of the longer piece of rope? Answer Choices: (A) 7.5 (B) 8.9 (C) 9.9 (D) 11.5 (E) 11.7\nA:",
+            "rationale": "Let's think step by step. We know that the total length of the rope is 20 meters. We also know that one piece of rope is 3 meters shorter than the other. So if we add 3 meters to the length of the shorter rope, we will get the length of the longer rope. The length of the longer rope is 11.7 meters.",
+            "pred_ans": "E",
+            "gold_ans": "D"
+        }
+    ]
+}

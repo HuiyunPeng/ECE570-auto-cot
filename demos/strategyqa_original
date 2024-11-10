@@ -1,0 +1,40 @@
+{
+    "demo": [
+        {
+            "question": "Q: Would a Bengal cat be afraid of catching a fish?\nA:",
+            "rationale": "Let's think step by step. A Bengal cat sees a fish in water. The Bengal cat has never seen a fish before and is curious about it. The Bengal cat reaches its paw out to touch the fish. The fish feels slimy and wet and the Bengal cat doesn't like it. The Bengal cat pulls its paw back and decides that it doesn't like fish.",
+            "pred_ans": "no",
+            "gold_ans": "no"
+        },
+        {
+            "question": "Q: Did the 40th president of the United States forward lolcats to his friends?\nA:",
+            "rationale": "Let's think step by step. The 40th president of the United States was Ronald Reagan. There is no evidence that Ronald Reagan ever forwarded lolcats to his friends.",
+            "pred_ans": "no",
+            "gold_ans": "no"
+        },
+        {
+            "question": "Q: Can you see the moon in Wembley Arena?\nA:",
+            "rationale": "Let's think step by step. Wembley Arena is an indoor venue, so the moon would only be visible if there was a hole in the roof. Even then, the moon would only be visible during the night. So the answer is probably no.",
+            "pred_ans": "no",
+            "gold_ans": "no"
+        },
+        {
+            "question": "Q: Will Queen Elizabeth be buried in the Pantheon?\nA:",
+            "rationale": "Let's think step by step. First, the Pantheon is a church, so it's possible that she could be buried there. Second, Queen Elizabeth II is still alive, so she hasn't been buried yet. Third, even if she were to be buried in the Pantheon, it's unlikely that we would know about it ahead of time, so it's hard to say for sure.",
+            "pred_ans": "no",
+            "gold_ans": "no"
+        },
+        {
+            "question": "Q: Would a vegetarian be able to eat something at Chick-fil-A?\nA:",
+            "rationale": "Let's think step by step. Chick-fil-A is a restaurant chain that specializes in chicken sandwiches. So right off the bat, we can say that a vegetarian probably wouldn't be able to find a sandwich that they could eat. However, Chick-fil-A does offer salads and sides that a vegetarian could eat.",
+            "pred_ans": "yes",
+            "gold_ans": "yes"
+        },
+        {
+            "question": "Q: Did Dr. Seuss make himself famous?\nA:",
+            "rationale": "Let's think step by step. Dr. Seuss was born in 1904 as Theodor Seuss Geisel. He wrote his first book, And to Think That I Saw It on Mulberry Street, in 1937. It was rejected by 27 different publishers before finally being accepted. The book was not an immediate success. Dr. Seuss's big break came when he wrote The Cat in the Hat in 1957. The book was an instant success and made Dr. Seuss famous.",
+            "pred_ans": "no",
+            "gold_ans": "no"
+        }
+    ]
+}

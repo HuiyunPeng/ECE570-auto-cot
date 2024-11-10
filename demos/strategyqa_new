@@ -1,0 +1,16 @@
+{
+    "demo": [
+        {
+            "question": "Q: Has Gorillaz creator been in more bands than Bernard Sumner?\nA:",
+            "rationale": "Let's think step by step. Bernard Sumner was in the bands Joy Division and New Order, so we know he's been in at least two bands. As for Gorillaz creator Damon Albarn, he was also in the band Blur, so he's been in at least two bands as well.",
+            "pred_ans": "yes",
+            "gold_ans": "yes"
+        },
+        {
+            "question": "Q: Could James Brown's ex-wives hold a doubles game of tennis?\nA:",
+            "rationale": "Let's think step by step. First, we need to know how many ex-wives James Brown had. According to this article, James Brown had at least four ex-wives. Second, we need to know if they are all still alive. According to this article, two of James Brown's ex-wives are still alive. So, the answer to the question is that two of James Brown's ex-wives could hold a doubles game of tennis.",
+            "pred_ans": "yes",
+            "gold_ans": "yes"
+        }
+    ]
+}

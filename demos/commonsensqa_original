@@ -1,0 +1,46 @@
+{
+    "demo": [
+        {
+            "question": "Q: Where would you find a ticket booth and see a concert? Answer Choices: (A) clerk (B) indoors (C) movie theater (D) venue (E) auditorium\nA:",
+            "rationale": "Let's think step by step. You would go to a ticket booth to purchase a ticket for a concert. The concert would take place at a venue, which could be indoors or outdoors. It is most likely that the concert would take place indoors at a large auditorium or a movie theater.",
+            "pred_ans": "D",
+            "gold_ans": "D"
+        },
+        {
+            "question": "Q: Where can you store your dishes in your dwelling? Answer Choices: (A) drawer (B) shelf (C) pantry (D) apartment (E) cabinet\nA:",
+            "rationale": "Let's think step by step. Where do you typically find a drawer? In a piece of furniture. What kind of furniture typically has drawers? A dresser. You would not store dishes in a dresser drawer. A shelf is a more likely option for storing dishes. You might have a shelf in your pantry or in your kitchen cabinets.",
+            "pred_ans": "B",
+            "gold_ans": "B"
+        },
+        {
+            "question": "Q: James was meeting a friend.  They had planed a slow day. They didn't want to do much.  They just wanted what? Answer Choices: (A) relaxation (B) panic (C) alarm (D) joy (E) cheer\nA:",
+            "rationale": "Let's think step by step. James was meeting a friend. They had planned a slow day. They didn't want to do much. They just wanted _____. The only logical answer choice is relaxation.",
+            "pred_ans": "A",
+            "gold_ans": "A"
+        },
+        {
+            "question": "Q: The man was going fishing instead of work, what is he seeking? Answer Choices: (A) food (B) relaxation (C) killing (D) missing morning cartoons (E) boredom\nA:",
+            "rationale": "Let's think step by step. The man is going fishing instead of work. This means that the man would rather go fishing than work. The man is seeking relaxation.",
+            "pred_ans": "B",
+            "gold_ans": "B"
+        },
+        {
+            "question": "Q: If you aren't well rested and it's a rainy day what might you do? Answer Choices: (A) sleep (B) write (C) make bread (D) stay in bed (E) enjoy film\nA:",
+            "rationale": "Let's think step by step. First, if you aren't well rested, you might want to sleep. However, if it's a rainy day, you might not be able to sleep because it's too noisy outside. In that case, you might want to stay in bed and enjoy a film.",
+            "pred_ans": "D",
+            "gold_ans": "D"
+        },
+        {
+            "question": "Q: Where do all animals live? Answer Choices: (A) the moon (B) fairgrounds (C) surface of earth (D) meadow (E) zoos\nA:",
+            "rationale": "Let's think step by step. Do animals live on the moon? No. How about the fairgrounds? No. The surface of the Earth? Yes. Meadow? Yes. Zoos? Yes. The answer is C, surface of Earth.",
+            "pred_ans": "C",
+            "gold_ans": "C"
+        },
+        {
+            "question": "Q: Where would you go if you want to buy some clothes? Answer Choices: (A) mall (B) grocery store (C) grocery store (D) shop (E) supermarket\nA:",
+            "rationale": "Let's think step by step. You want to buy some clothes, so you would go to a store that sells clothes. That narrows it down to choices (A), (D), and (E). A mall is a collection of many stores, so you could find a store that sells clothes in a mall, which is choice (A). A shop is a small store, so it's possible that a shop sells clothes, which is choice (D). A supermarket is a store that sells food, so it's unlikely that a supermarket would sell clothes, which is choice (E). Therefore, the best answer is (A).",
+            "pred_ans": "A",
+            "gold_ans": "A"
+        }
+    ]
+}

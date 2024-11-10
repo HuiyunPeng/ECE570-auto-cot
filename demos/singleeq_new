@@ -1,0 +1,34 @@
+{
+    "demo": [
+        {
+            "question": "Q: This afternoon Craig left school, rode the bus 3.8333333333333335 miles, and then walked 0.16666666666666666 of a mile to get home. How much farther did Craig ride than walk?\nA:",
+            "rationale": "Let's think step by step. First, we need to convert 3.8333333333333335 miles to just 3.83 miles. Then, we need to subtract 0.16666666666666666 miles from 3.83 miles. This will give us the answer of 3.66 miles.",
+            "pred_ans": "3.66",
+            "gold_ans": "3.6666666666666665"
+        },
+        {
+            "question": "Q: There are 2 rose bushes currently in the park. Park workers will plant 4 more rose bushes today. How many rose bushes will the park have when the workers are finished ?\nA:",
+            "rationale": "Let's think step by step. There are 2 rose bushes currently in the park. Park workers will plant 4 more rose bushes today. This means that when the workers are finished, there will be a total of 6 rose bushes in the park.",
+            "pred_ans": "6",
+            "gold_ans": "6"
+        },
+        {
+            "question": "Q: Tom found 7 seashells but 4 were broken.  How many unbroken seashells did Tom find ?\nA:",
+            "rationale": "Let's think step by step. Tom found 7 seashells. 4 were broken. That means 3 were unbroken.",
+            "pred_ans": "3",
+            "gold_ans": "3"
+        },
+        {
+            "question": "Q: Keith bought 72 eggs from the store to bake some cakes.  How many dozen eggs did Keith buy?\nA:",
+            "rationale": "Let's think step by step. How many eggs are in one dozen? There are 12 eggs in one dozen. So, if we divide 72 by 12, we will find out how many dozens of eggs Keith bought. Keith bought 6 dozen eggs from the store to bake some cakes.",
+            "pred_ans": "6",
+            "gold_ans": "6"
+        },
+        {
+            "question": "Q: There were a total of 7 football games this year. Melanie missed 4 of the games. How many football games did Melanie go to in all ?\nA:",
+            "rationale": "Let's think step by step. There were a total of 7 football games this year. Melanie missed 4 of the games. This means Melanie went to 3 of the 7 football games.",
+            "pred_ans": "3",
+            "gold_ans": "3"
+        }
+    ]
+}

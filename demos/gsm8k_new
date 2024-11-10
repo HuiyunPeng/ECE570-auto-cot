@@ -1,0 +1,22 @@
+{
+    "demo": [
+        {
+            "question": "Q: Steve is 60 years old. His wife is 4 years older than him. Their son is currently half as old as his mom and their son's wife is 3 years younger than her husband. How old is Steve's son's wife?\nA:",
+            "rationale": "Let's think step by step. Steve is 60 years old. His wife is 4 years older than him, so she is 64 years old. Their son is currently half as old as his mom, so he is 32 years old. Their son's wife is 3 years younger than her husband, so she is 29 years old.",
+            "pred_ans": "29",
+            "gold_ans": "29"
+        },
+        {
+            "question": "Q: Greta’s paycheck is $2400.00. She puts 50% of her pay into her retirement account. She then uses 20% of her paycheck to make her monthly car payment. After funding her retirement and paying for her car, how much money does she have left to spend?\nA:",
+            "rationale": "Let's think step by step. First, she puts 50% of her pay into her retirement account. So, 50% of $2400 is $1200. Then, she uses 20% of her remaining pay to make her monthly car payment. 20% of $2400 is $480, and 20% of $1200 is $240. So, she has $240 left to spend.",
+            "pred_ans": "240",
+            "gold_ans": "720"
+        },
+        {
+            "question": "Q: There are 6 girls in the park. If there are twice the number of boys in the park, how many kids are in the park?\nA:",
+            "rationale": "Let's think step by step. There are 6 girls in the park. That means there are 6x2=12 boys in the park. That means there are a total of 18 kids in the park.",
+            "pred_ans": "18",
+            "gold_ans": "18"
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "demo": [
+        {
+            "question": "Q: There were 7 roses and 12 orchids in the vase. Jessica cut some more roses and orchids from her flower garden. There are now 11 roses and 20 orchids in the vase. How many more orchids than roses are there in the vase now?\nA:",
+            "rationale": "Let's think step by step. There were 7 roses and 12 orchids in the vase. Jessica cut some more roses and orchids from her flower garden. There are now 11 roses and 20 orchids in the vase. There are 9 more orchids than roses in the vase now.",
+            "pred_ans": "9",
+            "gold_ans": "9"
+        },
+        {
+            "question": "Q: He then went to see the oranges being harvested. He found out that they harvest 67 sacks per day and that each sack containes 12 oranges. How many oranges are harvested if they harvest a total of 35 sacks of oranges?\nA:",
+            "rationale": "Let's think step by step. He found out that they harvest 67 sacks per day. That means that, in total, they harvest 67 x 12 = 804 oranges per day. Now, if they harvest a total of 35 sacks of oranges, that means that they would harvest 35 x 12 = 420 oranges.",
+            "pred_ans": "420",
+            "gold_ans": "420"
+        },
+        {
+            "question": "Q: 2 birds and 6 storks were sitting on the fence. 3 more birds came to join them. How many more storks than birds are sitting on the fence?\nA:",
+            "rationale": "Let's think step by step. There are 2 birds and 6 storks sitting on the fence. 3 more birds come to join them. Now there are 2 + 3 = 5 birds and 6 storks sitting on the fence. So there are 6 - 5 = 1 more stork than bird sitting on the fence.",
+            "pred_ans": "1",
+            "gold_ans": "1"
+        },
+        {
+            "question": "Q: Paul had 108 books and 55 pens. After selling some books and pens in a garage sale he had 66 books and 59 pens left. How many books did he sell in the garage sale?\nA:",
+            "rationale": "Let's think step by step. We know that Paul had 108 books and 55 pens before the garage sale. We know that after the garage sale, he had 66 books and 59 pens. This means that he sold 42 books and 16 pens in the garage sale.",
+            "pred_ans": "42",
+            "gold_ans": "42"
+        },
+        {
+            "question": "Q: In a school there are 632 girls and 410 boys. 465 more girls joined the school. How many more girls than boys does the school have?\nA:",
+            "rationale": "Let's think step by step. There are currently 632 + 465 = 1097 girls in the school. There are 410 boys in the school. 1097 - 410 = 687 more girls than boys.",
+            "pred_ans": "687",
+            "gold_ans": "687"
+        },
+        {
+            "question": "Q: Ed had 6 more marbles than Doug. Doug lost 7 of his marbles at the playground. If Ed had 22 marbles How many marbles does Doug have now?\nA:",
+            "rationale": "Let's think step by step. Ed had 6 more marbles than Doug. That means Doug had 22 - 6 = 16 marbles. Doug lost 7 of his marbles at the playground. That means Doug has 16 - 7 = 9 marbles now.",
+            "pred_ans": "9",
+            "gold_ans": "9"
+        },
+        {
+            "question": "Q: Baker sold 8 cakes. If he had made 40 cakes initially How many more cakes did baker make than those he sold?\nA:",
+            "rationale": "Let's think step by step. First, let's think about how to word this problem. We can say, \"Baker sold _____ cakes. If he had made _____ cakes initially, how many more cakes did baker make than those he sold?\" Now let's think about what we know. We know that the baker sold 8 cakes and that he made 40 cakes initially. From this, we can calculate that the baker made 32 more cakes than those he sold.",
+            "pred_ans": "32",
+            "gold_ans": "32"
+        },
+        {
+            "question": "Q: Julia played tag with 16 kids on monday. If she played tag with 12 more kids on monday than on tuesday How many kids did she play with on tuesday?\nA:",
+            "rationale": "Let's think step by step. On Monday, Julia played with 16 kids. On Tuesday, Julia played with more kids than on Monday. On Tuesday, Julia played with 12 more kids than on Monday. So, on Tuesday, Julia played with (16 + 12) = 28 kids.",
+            "pred_ans": "28",
+            "gold_ans": "4"
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "demo": [
+        {
+            "question": "Q: Tim has 44 books. Sam has 52 books.  How many books do they have together ?\nA:",
+            "rationale": "Let's think step by step. Step 1: How many books does Tim have? Step 2: How many books does Sam have? Step 3: How many books do they have together? Tim has 44 books. Sam has 52 books. They have 96 books together.",
+            "pred_ans": "96",
+            "gold_ans": "96"
+        },
+        {
+            "question": "Q: Kaleen filled a bucket with 0.75 of a gallon of water. A few minutes later, she realized only 0.5 of a gallon of water remained. How much water had leaked out of the bucket?\nA:",
+            "rationale": "Let's think step by step. Kaleen filled a bucket with 0.75 of a gallon of water. This means that she started with 0 gallons of water, and added 0.75 gallons of water. So far, so good. A few minutes later, she realized only 0.5 of a gallon of water remained. This means that, since she started with 0 gallons of water, and added 0.75 gallons of water, she now has 0.5 gallons of water. How much water had leaked out of the bucket? 0.25 gallons of water leaked out of the bucket.",
+            "pred_ans": "25",
+            "gold_ans": "0.25"
+        },
+        {
+            "question": "Q: Sara had 21 quarters in her bank. Her dad gave her 49 more quarters. How many quarters does she have now ?\nA:",
+            "rationale": "Let's think step by step. Sara had 21 quarters in her bank. Her dad gave her 49 more quarters. That means that she now has 21 + 49 = 70 quarters in her bank.",
+            "pred_ans": "70",
+            "gold_ans": "70"
+        },
+        {
+            "question": "Q: Mark's father gave him $85. Mark bought 10 books, each of which cost $5. How much money does Mark have left?\nA:",
+            "rationale": "Let's think step by step. Mark's father gave him $85. Mark bought 10 books, each of which cost $5. That means that Mark spent $50 on books. So Mark has $85 - $50 = $35 left.",
+            "pred_ans": "35",
+            "gold_ans": "35"
+        },
+        {
+            "question": "Q: There are 22 walnut trees currently in the park. Park workers will plant more walnut trees today. When the workers are finished there will be 55 walnut trees in the park. How many walnut trees did the workers plant today ?\nA:",
+            "rationale": "Let's think step by step. There are currently 22 walnut trees in the park. The workers will plant more walnut trees today. When the workers are finished, there will be 55 walnut trees in the park. The workers planted 33 walnut trees today.",
+            "pred_ans": "33",
+            "gold_ans": "33"
+        },
+        {
+            "question": "Q: Brenda’s mother made cookies for 5. If she prepared 35 cookies and each of them had the same number of cookies, how many did each of them have?\nA:",
+            "rationale": "Let's think step by step. Brenda's mother made 35 cookies. We know that she made them for 5 people. That means that she made 7 cookies for each person.",
+            "pred_ans": "7",
+            "gold_ans": "7"
+        },
+        {
+            "question": "Q: Sara grew 43 pumpkins, but the rabbits ate 23 pumpkins. How many pumpkins does Sara have left ?\nA:",
+            "rationale": "Let's think step by step. Sara grew 43 pumpkins. The rabbits ate 23 pumpkins. That means that Sara had 43 pumpkins, and then 23 were taken away. So Sara has 43 - 23, which is 20, pumpkins left.",
+            "pred_ans": "20",
+            "gold_ans": "20"
+        },
+        {
+            "question": "Q: Sara, Keith, Benny, and Alyssa each have 96 baseball cards.  How many dozen baseball cards do they have in all?\nA:",
+            "rationale": "Let's think step by step. There are 12 dozens in a gross, so we need to divide 96 by 12. 96/12=8 Therefore, they have 8 dozens of baseball cards in all.",
+            "pred_ans": "8",
+            "gold_ans": "32"
+        }
+    ]
+}

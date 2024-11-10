@@ -4,6 +4,8 @@ Adapted from https://github.com/kojima-takeshi188/zero_shot_cot
 
 import argparse
 from utils import *
+import os
+from dotenv import load_dotenv
 
 def main():
     args = parse_arguments()
@@ -13,6 +15,7 @@ def main():
     
     fix_seed(args.random_seed)
     
+    load_dotenv()
     print("OPENAI_API_KEY:")
     print(os.getenv("OPENAI_API_KEY")[0:5] + '**********')
     
@@ -27,11 +30,13 @@ def main():
         demo = create_demo_text(args, cot_flag=False)
     elif args.method == "few_shot_cot" or args.method == "auto_cot":
         demo = create_demo_text(args, cot_flag=True)
+        demo2 = create_demo_text2(args)
     else:
         pass
 
     total = 0
     correct_list = []
+    os.makedirs(os.path.dirname(args.output_dir), exist_ok=True)
     with open(args.output_dir, "a") as wp:
 
         for i, data in enumerate(dataloader):
@@ -62,13 +67,16 @@ def main():
             elif args.method == "few_shot_cot":
                 x = demo + x
             elif args.method == "auto_cot":
+                demo2.append({"role": "user", "content": x})
+                demo2.append({"role": "system", "content": args.cot_trigger})
                 x = demo + x + " " + args.cot_trigger
             else:
                 raise ValueError("method is not properly defined ...")
             
             # Answer experiment by generating text ...
             max_length = args.max_length_cot if "cot" in args.method else args.max_length_direct
-            z = decoder.decode(args, x, max_length)
+            #z = decoder.decode(args, x, max_length)
+            z = decoder.decode(args, demo2, max_length)
 
             output_line["rationale"] = z
 
@@ -80,7 +88,7 @@ def main():
                 print(z2 + pred)
             else:
                 pred = z
-                print(x + pred)
+                print(x + str(pred))
 
             # Clensing of predicted answer ...
             pred = answer_cleansing(args, pred)
@@ -101,6 +109,10 @@ def main():
             correct = (np.array([pred]) == np.array([y])).sum().item()
             correct_list.append(correct)
             total += 1 #np.array([y]).size(0)
+
+            # Calculate and print accuracy in each iteration ...
+            accuracy = (sum(correct_list) * 1.0 / total) * 100
+            print("Current accuracy : {}".format(accuracy))
             
             if (args.limit_dataset_size != 0) and ((i+1) >= args.limit_dataset_size):
                 break
@@ -155,6 +167,9 @@ def parse_arguments():
     parser.add_argument(
         "--log_dir", type=str, default="./log/", help="log directory"
     )
+    parser.add_argument(
+        "--llm_model", type=str, default="llama", help="select LLM model"
+    )
     
     args = parser.parse_args()
     
@@ -162,17 +177,17 @@ def parse_arguments():
         args.dataset_path = "./dataset/AQuA/test.json"
         args.direct_answer_trigger = "\nTherefore, among A through E, the answer is"
     elif args.dataset == "gsm8k":
-        args.dataset_path = "./dataset/grade-school-math/test.jsonl"
+        args.dataset_path = "../zero_shot_cot/dataset/grade-school-math/test.jsonl"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     elif args.dataset == "commonsensqa":
-        args.dataset_path = "./dataset/CommonsenseQA/dev_rand_split.jsonl"
+        args.dataset_path = "../zero_shot_cot/dataset/CommonsenseQA/dev_rand_split.jsonl"
         args.direct_answer_trigger = "\nTherefore, among A through E, the answer is"
         args.plausible_answer_trigger = "Choose the most plausible answer from among choices A through E."
     elif args.dataset == "addsub":
-        args.dataset_path = "./dataset/AddSub/AddSub.json"
+        args.dataset_path = "../zero_shot_cot/dataset/AddSub/AddSub.json"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     elif args.dataset == "multiarith":
-        args.dataset_path = "./dataset/MultiArith/MultiArith.json"
+        args.dataset_path = "../zero_shot_cot/dataset/MultiArith/MultiArith.json"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     elif args.dataset == "strategyqa":
         args.dataset_path = "./dataset/StrategyQA/task.json"
@@ -181,19 +196,19 @@ def parse_arguments():
         args.dataset_path = "./dataset/SVAMP/SVAMP.json"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     elif args.dataset == "singleeq":
-        args.dataset_path = "./dataset/SingleEq/questions.json"
+        args.dataset_path = "../zero_shot_cot/dataset/SingleEq/questions.json"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     elif args.dataset == "bigbench_date":
-        args.dataset_path = "./dataset/Bigbench_Date/task.json"
+        args.dataset_path = "../zero_shot_cot/dataset/Bigbench_Date/task.json"
         args.direct_answer_trigger = "\nTherefore, among A through F, the answer is"
     elif args.dataset == "object_tracking":
-        args.dataset_path = "./dataset/Bigbench_object_tracking/task.json"
+        args.dataset_path = "../zero_shot_cot/dataset/Bigbench_object_tracking/task.json"
         args.direct_answer_trigger = "\nTherefore, among A through C, the answer is"
     elif args.dataset == "coin_flip":
-        args.dataset_path = "./dataset/coin_flip/coin_flip.json"
+        args.dataset_path = "../zero_shot_cot/dataset/coin_flip/coin_flip.json"
         args.direct_answer_trigger = "\nTherefore, the answer (Yes or No) is"
     elif args.dataset == "last_letters":
-        args.dataset_path = "./dataset/last_letters/last_letters.json"
+        args.dataset_path = "../zero_shot_cot/dataset/last_letters/last_letters.json"
         args.direct_answer_trigger = "\nTherefore, the answer is"
     else:
         raise ValueError("dataset is not properly defined ...")

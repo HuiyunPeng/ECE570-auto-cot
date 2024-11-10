@@ -1,0 +1,28 @@
+{
+    "demo": [
+        {
+            "question": "Q: Take the last letters of each words in \"Kelvin Brennan Carina Paty\" and concatenate them.\nA:",
+            "rationale": "Let's think step by step. The last letter of \"Kelvin\" is \"n\". The last letter of \"Brennan\" is \"n\". The last letter of \"Carina\" is \"a\". The last letter of \"Paty\" is \"y\". So the final answer would be \"nnay\".",
+            "pred_ans": "nnay",
+            "gold_ans": "nnay"
+        },
+        {
+            "question": "Q: Take the last letters of each words in \"Idalia Arnoldo Marla Duane\" and concatenate them.\nA:",
+            "rationale": "Let's think step by step. The last letter of \"Idalia\" is \"a\". The last letter of \"Arnoldo\" is \"o\". The last letter of \"Marla\" is \"a\". The last letter of \"Duane\" is \"e\". So the final answer would be \"aoae\".",
+            "pred_ans": "aoae",
+            "gold_ans": "aoae"
+        },
+        {
+            "question": "Q: Take the last letters of each words in \"Alina Alessandra Amina Bianca\" and concatenate them.\nA:",
+            "rationale": "Let's think step by step. The last letter of \"Alina\" is \"a\". The last letter of \"Alessandra\" is \"a\". The last letter of \"Amina\" is \"a\". The last letter of \"Bianca\" is \"a\". So the final answer is \"aaaa\".",
+            "pred_ans": "aaaa",
+            "gold_ans": "aaaa"
+        },
+        {
+            "question": "Q: Take the last letters of each words in \"Lacey Nora Debra Ashleigh\" and concatenate them.\nA:",
+            "rationale": "Let's think step by step. The last letter of \"Lacey\" is \"y\". The last letter of \"Nora\" is \"a\". The last letter of \"Debra\" is \"a\". The last letter of \"Ashleigh\" is \"h\". So the final answer is \"yahah\".",
+            "pred_ans": "yahah",
+            "gold_ans": "yaah"
+        }
+    ]
+}
