@@ -1,15 +1,15 @@
 {
     "demo": [
         {
-            "question": "Q: Has Gorillaz creator been in more bands than Bernard Sumner?\nA:",
-            "rationale": "Let's think step by step. Bernard Sumner was in the bands Joy Division and New Order, so we know he's been in at least two bands. As for Gorillaz creator Damon Albarn, he was also in the band Blur, so he's been in at least two bands as well.",
+            "question": "Q: Did the swallow play a role in a famous film about King Arthur?\nA:",
+            "rationale": "Let's think step by step. The swallow is a small, agile bird known for its aerial acrobatics. The film in question is likely \"Excalibur\" (1981), in which a scene features a swallow flying around inside a castle.",
             "pred_ans": "yes",
             "gold_ans": "yes"
         },
         {
-            "question": "Q: Could James Brown's ex-wives hold a doubles game of tennis?\nA:",
-            "rationale": "Let's think step by step. First, we need to know how many ex-wives James Brown had. According to this article, James Brown had at least four ex-wives. Second, we need to know if they are all still alive. According to this article, two of James Brown's ex-wives are still alive. So, the answer to the question is that two of James Brown's ex-wives could hold a doubles game of tennis.",
-            "pred_ans": "yes",
+            "question": "Q: Was Lord Voldemort taught by Professor Dumbledore?\nA:",
+            "rationale": "Let's think step by step. First, we need to think about what it would mean for Lord Voldemort to be \"taught\" by Professor Dumbledore. This would imply that Lord Voldemort was a student at Hogwarts while Professor Dumbledore was the Headmaster. However, we know from the Harry Potter series that Lord Voldemort was not a student at Hogwarts. He was expelled from the school when he was just a first year student. Therefore, we can conclude that Lord Voldemort was not taught by Professor Dumbledore.",
+            "pred_ans": "no",
             "gold_ans": "yes"
         }
     ]

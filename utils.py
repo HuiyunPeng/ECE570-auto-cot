@@ -22,7 +22,6 @@ def shuffleDict(d):
   [(key, d[key]) for key in keys]
   random.shuffle(keys)
   keys = [(key, d[key]) for key in keys]
-  #keys = d(keys)
   return dict(keys)
   
 def fix_seed(seed):
@@ -80,36 +79,22 @@ def decoder_for_llama(args, messages, max_length):
     return response
 
 
-# Sentence Generator (Decoder) for GPT-3 ...
-def decoder_for_gpt3(args, input, max_length):
+# Sentence Generator (Decoder) for GPT ...
+def decoder_for_gpt(args, input, max_length):
     print(input)
-    # GPT-3 API allows each users execute the API within 60 times in a minute ...
-    # time.sleep(1)
     time.sleep(args.api_time_interval)
 
     engine = "gpt-4o-mini"
         
-    if ("few_shot" in args.method or "auto" in args.method)  and engine == "code-davinci-002":
-        response = openai.ChatCompletion.create(
-          engine=engine,
-          prompt=input,
-          max_tokens=max_length,
-          temperature=args.temperature,
-          top_p=1,
-          frequency_penalty=0,
-          presence_penalty=0,
-          stop=["\n"]
-        )
-    else:
-        response = openai.chat.completions.create(
-            model=engine,  # Change "engine" to "model"
-            messages=input,
-            max_tokens=max_length,
-            temperature=args.temperature,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
-        )
+    response = openai.chat.completions.create(
+        model=engine,
+        messages=input,
+        max_tokens=max_length,
+        temperature=args.temperature,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0
+    )
 
     return response.choices[0].message.content
 
@@ -120,7 +105,7 @@ class Decoder():
  
     def decode(self, args, input, max_length):
         if args.llm_model == "gpt":
-            response = decoder_for_gpt3(args, input, max_length)
+            response = decoder_for_gpt(args, input, max_length)
         else:
             response = decoder_for_llama(args, input, max_length)
         return response
@@ -307,10 +292,9 @@ def answer_cleansing(args, pred, must_choice=False):
 
     print("pred_before : " + pred)
     
-    if args.method in ("few_shot", "few_shot_cot", "auto_cot"):
-        preds = pred.split(args.direct_answer_trigger_for_fewshot)
-        answer_flag = True if len(preds) > 1 else False 
-        pred = preds[-1]
+    preds = pred.split(args.direct_answer_trigger_for_fewshot)
+    answer_flag = True if len(preds) > 1 else False 
+    pred = preds[-1]
 
     if args.dataset in ("aqua", "commonsensqa"):
         pred = re.findall(r'A|B|C|D|E', pred)
@@ -340,18 +324,12 @@ def answer_cleansing(args, pred, must_choice=False):
     if len(pred) == 0:
         pred = ""
     else:
-        if args.method in ("few_shot", "few_shot_cot", "auto_cot"):
-            if answer_flag:
-                # choose the first element in list ...
-                pred = pred[0]
-            else:
-                # choose the last element in list ...
-                pred = pred[-1]
-        elif args.method in ("zero_shot", "zero_shot_cot"):
+        if answer_flag:
             # choose the first element in list ...
             pred = pred[0]
         else:
-            raise ValueError("method is not properly defined ...")
+            # choose the last element in list ...
+            pred = pred[-1]
     
     # (For arithmetic tasks) if a word ends with period, it will be omitted ...
     if pred != "":

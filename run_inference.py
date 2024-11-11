@@ -1,11 +1,15 @@
-'''
-Adapted from https://github.com/kojima-takeshi188/zero_shot_cot
-'''
-
 import argparse
 from utils import *
 import os
 from dotenv import load_dotenv
+
+# This script is designed to perform inference using a language model in a zero-shot reasoning context.
+# It parses command-line arguments to configure the experiment, including dataset selection, output directory,
+# and model parameters. The script loads a pre-trained model and tokenizer, processes a dataset of questions
+# and answers, generates responses using the model, and evaluates the accuracy of the predictions against
+# the ground truth. The results are logged to a specified output file, and the script supports resuming
+# from a specific question ID in case of interruptions. It also includes functionality for answer cleansing
+# and managing API rate limits.
 
 def main():
     args = parse_arguments()
@@ -26,13 +30,8 @@ def main():
     dataloader = setup_data_loader(args)
     print_now()
 
-    if args.method == "few_shot":
-        demo = create_demo_text(args, cot_flag=False)
-    elif args.method == "few_shot_cot" or args.method == "auto_cot":
-        demo = create_demo_text(args, cot_flag=True)
-        demo2 = create_demo_text2(args)
-    else:
-        pass
+    demo = create_demo_text(args, cot_flag=True)
+    demo2 = create_demo_text2(args)
 
     total = 0
     correct_list = []
@@ -52,43 +51,22 @@ def main():
             x, y = data
             x = "Q: " + x[0] + "\n" + "A:"
             y = y[0].strip()
-            
-            # print(x, y)
-            
+                        
             output_line["question"] = x
             output_line["gold_ans"] = y
 
-            if args.method == "zero_shot":
-                x = x + " " + args.direct_answer_trigger_for_zeroshot
-            elif args.method == "zero_shot_cot":
-                x = x + " " + args.cot_trigger
-            elif args.method == "few_shot":
-                x = demo + x
-            elif args.method == "few_shot_cot":
-                x = demo + x
-            elif args.method == "auto_cot":
-                demo2.append({"role": "user", "content": x})
-                demo2.append({"role": "system", "content": args.cot_trigger})
-                x = demo + x + " " + args.cot_trigger
-            else:
-                raise ValueError("method is not properly defined ...")
+            demo2.append({"role": "user", "content": x})
+            demo2.append({"role": "system", "content": args.cot_trigger})
+            x = demo + x + " " + args.cot_trigger
             
             # Answer experiment by generating text ...
-            max_length = args.max_length_cot if "cot" in args.method else args.max_length_direct
-            #z = decoder.decode(args, x, max_length)
+            max_length = args.max_length_cot
             z = decoder.decode(args, demo2, max_length)
 
             output_line["rationale"] = z
 
-            # Answer extraction for zero-shot-cot ...
-            if args.method == "zero_shot_cot":
-                z2 = x + z + " " + args.direct_answer_trigger_for_zeroshot_cot
-                max_length = args.max_length_direct
-                pred = decoder.decode(args, z2, max_length)
-                print(z2 + pred)
-            else:
-                pred = z
-                print(x + str(pred))
+            pred = z
+            print(x + str(pred))
 
             # Clensing of predicted answer ...
             pred = answer_cleansing(args, pred)
@@ -116,7 +94,6 @@ def main():
             
             if (args.limit_dataset_size != 0) and ((i+1) >= args.limit_dataset_size):
                 break
-                #raise ValueError("Stop !!")
 
     # Calculate accuracy ...
     accuracy = (sum(correct_list) * 1.0 / total) * 100
@@ -127,27 +104,20 @@ def parse_arguments():
 
     parser.add_argument("--random_seed", type=int, default=1, help="random seed")
     parser.add_argument(
-        "--dataset", type=str, default="multiarith", choices=["aqua", "gsm8k", "commonsensqa", "addsub", "multiarith",  "strategyqa", "svamp", "singleeq", "coin_flip", "last_letters"], help="dataset used for experiment"
+        "--dataset", type=str, default="commonsensqa", choices=["aqua", "gsm8k", "commonsensqa", "addsub", "multiarith",  "strategyqa", "svamp", "singleeq", "coin_flip"], help="dataset used for experiment"
     )
     parser.add_argument(
-        "--demo_path", type=str, default="demos/multiarith", help="pre-generated demos used for experiment"
+        "--demo_path", type=str, default="demos/commonsensqa", help="pre-generated demos used for experiment"
     )
     parser.add_argument(
         "--resume_id", type=int, default=0, help="resume from which question id (current line number in the output file), if the experiment fails accidently (e.g., network error)"
     )
-    parser.add_argument("--minibatch_size", type=int, default=1, choices=[1], help="minibatch size should be 1 because GPT-3 API takes only 1 input for each request")
+    parser.add_argument("--minibatch_size", type=int, default=1, choices=[1], help="minibatch size should be 1 because GPT API takes only 1 input for each request")
     
     parser.add_argument("--max_num_worker", type=int, default=0, help="maximum number of workers for dataloader")
     
     parser.add_argument(
-        "--model", type=str, default="gpt3-xl", choices=["gpt3", "gpt3-medium", "gpt3-large", "gpt3-xl", "code-davinci-002"], help="model used for decoding. Note that 'gpt3' are the smallest models."
-    )
-    
-    parser.add_argument(
-        "--method", type=str, default="auto_cot", choices=["zero_shot", "zero_shot_cot", "few_shot", "few_shot_cot", "auto_cot"], help="method"
-    )
-    parser.add_argument(
-        "--output_dir", type=str, default="experiment/multiarith", help="output directory"
+        "--output_dir", type=str, default="experiment/commonsensqa", help="output directory"
     )
     parser.add_argument(
         "--max_length_cot", type=int, default=256, help="maximum length of output tokens by model for reasoning extraction"
@@ -162,7 +132,7 @@ def parse_arguments():
         "--api_time_interval", type=float, default=1.0, help="sleep between runs to avoid excedding the rate limit of openai api"
     )
     parser.add_argument(
-        "--temperature", type=float, default=0, help="temperature for GPT-3"
+        "--temperature", type=float, default=0, help="temperature for GPT"
     )
     parser.add_argument(
         "--log_dir", type=str, default="./log/", help="log directory"
@@ -177,17 +147,17 @@ def parse_arguments():
         args.dataset_path = "./dataset/AQuA/test.json"
         args.direct_answer_trigger = "\nTherefore, among A through E, the answer is"
     elif args.dataset == "gsm8k":
-        args.dataset_path = "../zero_shot_cot/dataset/grade-school-math/test.jsonl"
+        args.dataset_path = "./dataset/grade-school-math/test.jsonl"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     elif args.dataset == "commonsensqa":
-        args.dataset_path = "../zero_shot_cot/dataset/CommonsenseQA/dev_rand_split.jsonl"
+        args.dataset_path = "./dataset/CommonsenseQA/dev_rand_split.jsonl"
         args.direct_answer_trigger = "\nTherefore, among A through E, the answer is"
         args.plausible_answer_trigger = "Choose the most plausible answer from among choices A through E."
     elif args.dataset == "addsub":
-        args.dataset_path = "../zero_shot_cot/dataset/AddSub/AddSub.json"
+        args.dataset_path = "./dataset/AddSub/AddSub.json"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     elif args.dataset == "multiarith":
-        args.dataset_path = "../zero_shot_cot/dataset/MultiArith/MultiArith.json"
+        args.dataset_path = "./dataset/MultiArith/MultiArith.json"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     elif args.dataset == "strategyqa":
         args.dataset_path = "./dataset/StrategyQA/task.json"
@@ -196,19 +166,19 @@ def parse_arguments():
         args.dataset_path = "./dataset/SVAMP/SVAMP.json"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     elif args.dataset == "singleeq":
-        args.dataset_path = "../zero_shot_cot/dataset/SingleEq/questions.json"
+        args.dataset_path = "./dataset/SingleEq/questions.json"
         args.direct_answer_trigger = "\nTherefore, the answer (arabic numerals) is"
     elif args.dataset == "bigbench_date":
-        args.dataset_path = "../zero_shot_cot/dataset/Bigbench_Date/task.json"
+        args.dataset_path = "./dataset/Bigbench_Date/task.json"
         args.direct_answer_trigger = "\nTherefore, among A through F, the answer is"
     elif args.dataset == "object_tracking":
-        args.dataset_path = "../zero_shot_cot/dataset/Bigbench_object_tracking/task.json"
+        args.dataset_path = "./dataset/Bigbench_object_tracking/task.json"
         args.direct_answer_trigger = "\nTherefore, among A through C, the answer is"
     elif args.dataset == "coin_flip":
-        args.dataset_path = "../zero_shot_cot/dataset/coin_flip/coin_flip.json"
+        args.dataset_path = "./dataset/coin_flip/coin_flip.json"
         args.direct_answer_trigger = "\nTherefore, the answer (Yes or No) is"
     elif args.dataset == "last_letters":
-        args.dataset_path = "../zero_shot_cot/dataset/last_letters/last_letters.json"
+        args.dataset_path = "./dataset/last_letters/last_letters.json"
         args.direct_answer_trigger = "\nTherefore, the answer is"
     else:
         raise ValueError("dataset is not properly defined ...")
