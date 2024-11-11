@@ -37,7 +37,7 @@ Benchmark datasets are stored in the `/dataset` and `/log` folders.
 Construct Demos:
 
 ```
-python run_demo.py \
+python3 run_demo.py \
 --task coin_flip \
 --pred_file log/coin_flip_zero_shot_cot.log \
 --demo_save_dir demos/coin_flip
@@ -47,7 +47,7 @@ Run inference:
 
 Using gpt:
 ```
-python run_inference.py \
+python3 run_inference.py \
 --dataset coin_flip \
 --demo_path demos/coin_flip \
 --output_dir experiment/coin_flip \
@@ -56,7 +56,7 @@ python run_inference.py \
 
 Using llama:
 ```
-python run_inference.py \
+python3 run_inference.py \
 --dataset coin_flip \
 --demo_path demos/coin_flip \
 --output_dir experiment/coin_flip
