@@ -37,16 +37,37 @@ Construct Demos:
 
 ```
 python run_demo.py \
---task commonsensqa \
---pred_file log/commonsensqa_zero_shot_cot.log \
---demo_save_dir demos/commonsensqa
+--task coin_flip \
+--pred_file log/coin_flip_zero_shot_cot.log \
+--demo_save_dir demos/coin_flip
 ```
 
 Run inference:
 
+Using gpt:
 ```
 python run_inference.py \
---dataset commonsensqa \
---demo_path demos/commonsensqa \
---output_dir experiment/commonsensqa
+--dataset coin_flip \
+--demo_path demos/coin_flip \
+--output_dir experiment/coin_flip \
+--llm_model gpt
 ```
+
+Using llama:
+```
+python run_inference.py \
+--dataset coin_flip \
+--demo_path demos/coin_flip \
+--output_dir experiment/coin_flip
+```
+
+## Evaluation and Results
+The `/demos` directory contains demo outputs, including clustering figures for all 9 benchmarks. The results are categorized into two sections:
+- **Original implementation** (files prefixed with `benchmarkname_original`)
+- **Reimplementation** (files prefixed with `benchmarkname_new`)
+
+The `/experiment` directory contains the LLM output, with 4 output files for each of the 9 benchmarks:
+- `benchmarkname_llama_new`
+- `benchmarkname_llama_original`
+- `benchmarkname_gpt_new`
+- `benchmarkname_gpt_original`
