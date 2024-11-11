@@ -26,6 +26,7 @@ pip3 install -r requirements.txt
 - OpenAI API token to access GPT-4o-mini
 - HuggingFace token to access Meta-Llama/Llama-3.2-3B-Instruct
 
+**A `.env` file with `OPENAI_API_KEY` and `HUGGING_FACE_TOKEN` is required.**
 
 ## Datasets
 
