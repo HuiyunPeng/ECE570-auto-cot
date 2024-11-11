@@ -18,7 +18,6 @@ run_inference.py  # Script to run inference on datasets
 
 Python>=3.8
 ```
-pip3 install torch torchtext
 pip3 install -r requirements.txt
 ```
 
@@ -59,7 +58,8 @@ Using llama:
 python3 run_inference.py \
 --dataset coin_flip \
 --demo_path demos/coin_flip \
---output_dir experiment/coin_flip
+--output_dir experiment/coin_flip \
+--llm_model llama
 ```
 
 ## Evaluation and Results

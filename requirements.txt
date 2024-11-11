@@ -2,3 +2,9 @@ scikit-learn
 matplotlib
 sentence-transformers
 jupyter
+openai
+python-dotenv
+hdbscan
+accelerate>=0.26.0
+torch
+torchtext
